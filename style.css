@@ -1,0 +1,57 @@
+body {
+  background: #696e9e;
+}
+
+.twitt {
+  padding-top: 20px;
+  background: #ffffff;
+  min-width: 500px;
+  min-height: 200px;
+  max-height: fit-content;
+  position: relative;
+  left: 0;
+  top: 0;
+  border: 1px solid royalblue;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.twitt .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  background: #34b399;
+  width: 100%;
+}
+
+.twitt textarea {
+  margin-left: 2px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  min-width: 100%;
+  min-height: 200px;
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+}
+
+.deleteButton, .saveButton {
+  border: none;
+  position: absolute;
+  top: 2px;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  border-radius: 50%;
+  right: 5px;
+  background: red;
+}
+
+.saveButton {
+  left: 5px;
+  background: white;
+}
