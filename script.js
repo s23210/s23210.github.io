@@ -22,6 +22,8 @@ function createTweet(options, save = true) {
 			id: "tweet_" + new Date().getTime(),
 		};
 
+	textareaEl.readOnly = true;
+
 	const onDelete = () => {
 		deleteTweet(getTweetObj(tweetEl));
 		feed.removeChild(tweetEl);
