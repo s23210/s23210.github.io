@@ -2,7 +2,7 @@ body {
   background: #696e9e;
 }
 
-.twitt {
+.tweet {
   padding-top: 20px;
   background: #ffffff;
   min-width: 500px;
@@ -15,7 +15,7 @@ body {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.twitt .bar {
+.tweet .bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@ body {
   width: 100%;
 }
 
-.twitt textarea {
+.tweet textarea {
   margin-left: 2px;
   padding: 10px 10px;
   box-sizing: border-box;

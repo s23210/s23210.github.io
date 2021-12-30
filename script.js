@@ -1,15 +1,12 @@
-(function() {
-  'use strict';
-
-  var createTwitt,
-      addTwittBtnEl,
+  var createtweet,
+      addtweetBtnEl,
       testLocalStorage,
       init,
-      saveTwitt,
-      deleteTwitt,
-      loadTwitts,
-      getTwittObj,
-      onAddTwittBtnClick;
+      savetweet,
+      deletetweet,
+      loadtweets,
+      gettweetObj,
+      onAddtweetBtnClick;
 
 
 //absolutnie nie wiem dlaczego to kurwa nie dziala
@@ -18,7 +15,7 @@
   // };
 
 //chyba jednak potrzebne xddd
-  getTwittObj = function(el) {
+  gettweetObj = function(el) {
     var textarea = el.querySelector('textarea');
     return {
       content: textarea.value,
@@ -26,12 +23,12 @@
     };
   };
 
-  onAddTwittBtnClick = function() {
-    createTwitt();
+  onAddtweetBtnClick = function() {
+    createtweet();
   };
 
-  createTwitt = function(options) {
-    var twittEl = document.createElement('div'),
+  createtweet = function(options) {
+    var tweetEl = document.createElement('div'),
         barEl = document.createElement('div'),
         textareaEl = document.createElement('textarea'),
         saveBtnEl = document.createElement('button'),
@@ -40,24 +37,24 @@
         onDelete,
         config = options || {
           content: "",
-          id: "twitt_" + new Date().getTime(),
+          id: "tweet_" + new Date().getTime(),
         };
 
         console.log(config.id);
 
-    // twittEl.id = config.id;
+    // tweetEl.id = config.id;
 
     onDelete = function() {
-      deleteTwitt(getTwittObj(twittEl));
-      document.body.removeChild(twittEl);
+      deletetweet(gettweetObj(tweetEl));
+      document.body.removeChild(tweetEl);
     };
 
     onSave = function() {
-      //console.log(getTwittObj(twittEl));
-      saveTwitt(getTwittObj(twittEl));
+      //console.log(gettweetObj(tweetEl));
+      savetweet(gettweetObj(tweetEl));
     };
 
-//wpisuje wartosc twitta
+//wpisuje wartosc tweeta
      textareaEl.value = document.getElementById('input').value;
      //console.log(textareaEl.value);
      config.content = textareaEl.value;
@@ -71,15 +68,15 @@
     deleteBtnEl.addEventListener('click', onDelete, false);
 
     barEl.classList.add('bar');
-    twittEl.classList.add('twitt');
+    tweetEl.classList.add('tweet');
 
     barEl.appendChild(saveBtnEl);
     barEl.appendChild(deleteBtnEl);
 
-    twittEl.appendChild(barEl);
-    twittEl.appendChild(textareaEl);
+    tweetEl.appendChild(barEl);
+    tweetEl.appendChild(textareaEl);
 
-    document.body.appendChild(twittEl);
+    document.body.appendChild(tweetEl);
 };
     testLocalStorage = function() {
       var foo = 'foo'
@@ -95,30 +92,30 @@
     init = function () {
       if (!testLocalStorage) {
         var message = "We are sorry, but you cannot use localStorage";
-        saveTwitt = function () {
+        savetweet = function () {
           console.warn(message);
         };
-        deleteTwitt = function() {
+        deletetweet = function() {
           console.log(message);
         };
       } else {
-        saveTwitt = function(twitt) {
-          console.log(twitt.id);
-          localStorage.setItem(twitt.id, JSON.stringify(twitt));
+        savetweet = function(tweet) {
+          console.log(tweet.id);
+          localStorage.setItem(tweet.id, JSON.stringify(tweet));
         };
-        deleteTwitt = function(twitt) {
-          localStorage.removeItem(twitt.id);
+        deletetweet = function(tweet) {
+          localStorage.removeItem(tweet.id);
         };
-        loadTwitts = function() {
+        loadtweets = function() {
           for (var i = 0; i < localStorage.length; i++) {
-             var twittObject = JSON.parse(
+             var tweetObject = JSON.parse(
                localStorage.getItem(localStorage.key(i)));
-             createTwitt(twittObject);
-             //console.log(twittObject);
+             createtweet(tweetObject);
+             //console.log(tweetObject);
           }
         };
 
-        loadTwitts();
+        loadtweets();
       }
     }
 
@@ -130,14 +127,10 @@
     document.getElementById("input").value = "";
 
     init();
-    //saveTwitt();
+    //savetweet();
 
 
-  // createTwitt();
+  // createtweet();
 
-  addTwittBtnEl = document.querySelector('.addTwittBtn');
-  addTwittBtnEl.addEventListener('click', onAddTwittBtnClick, false);
-
-
-
-})();
+  addtweetBtnEl = document.querySelector('.addtweetBtn');
+  addtweetBtnEl.addEventListener('click', onAddtweetBtnClick, false);
