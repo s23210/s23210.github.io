@@ -1,5 +1,6 @@
 body {
 	background: #0d0d0d;
+	overflow-y: scroll;
 }
 
 .title {

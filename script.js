@@ -10,6 +10,9 @@ function getTweetObj(el) {
 }
 
 function createTweet(options, save = true) {
+
+	if(save && editorInput.value.trim().length < 1) return;
+
 	let tweetEl = document.createElement('div'),
 		barEl = document.createElement('div'),
 		textareaEl = document.createElement('textarea'),
@@ -23,7 +26,6 @@ function createTweet(options, save = true) {
 		deleteTweet(getTweetObj(tweetEl));
 		feed.removeChild(tweetEl);
 	};
-
 
 	textareaEl.value = document.getElementById('input').value;
 	if (save)
