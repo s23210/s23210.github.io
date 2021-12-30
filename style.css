@@ -1,57 +1,116 @@
 body {
-  background: #696e9e;
+	background: #0d0d0d;
+}
+
+.title {
+	color: #fff;
+	font-family: sans-serif;
+	width: 100%;
+	max-width: 800px;
+	margin: 20px auto;
+}
+
+.addtweetBtn {
+	border: 2px solid #2137cc;
+	outline: 0;
+	border-top: 0;
+	border-radius: 0px 0px 10px 10px;
+	background: transparent;
+	padding: 5px 10px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	position: relative;
+	bottom: -30px;
+	cursor: pointer;
+	left: -2px;
+	background: rgba(255, 255, 255, 0);
+	transition: background .3s;
+}
+
+.addtweetBtn:hover {
+	background: rgba(255, 255, 255, .05);
 }
 
 .tweet {
-  padding-top: 20px;
-  background: #ffffff;
-  min-width: 500px;
-  min-height: 200px;
-  max-height: fit-content;
-  position: relative;
-  left: 0;
-  top: 0;
-  border: 1px solid royalblue;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+	padding-top: 20px;
+	background: #1d1d1d;
+	min-width: 500px;
+	min-height: 200px;
+	max-height: fit-content;
+	position: relative;
+	left: 0;
+	top: 0;
+	border: 2px solid #2137cc;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.editor {
+	border-radius: 10px 10px 10px 0px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.feed {
+	display: flex;
+	flex-direction: column-reverse;
+	max-width: 800px;
+	margin: 0 auto;
 }
 
 .tweet .bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  background: #34b399;
-  width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 100%
 }
 
 .tweet textarea {
-  margin-left: 2px;
-  padding: 10px 10px;
-  box-sizing: border-box;
-  min-width: 100%;
-  min-height: 200px;
-  background: transparent;
-  border: none;
-  resize: none;
-  outline: none;
-}
-
-.deleteButton, .saveButton {
-  border: none;
-  position: absolute;
-  top: 2px;
-  height: 15px;
-  width: 15px;
-  cursor: pointer;
+	margin-left: 2px;
+	padding: 10px;
+	box-sizing: border-box;
+	min-width: 100%;
+	min-height: 200px;
+	background: 0 0;
+	border: 0;
+	resize: none;
+	outline: 0;
+	font-family: sans-serif;
+	color: #fafafa;
+	font-size: 14px;
+	font-weight: 400;
 }
 
 .deleteButton {
-  border-radius: 50%;
-  right: 5px;
-  background: red;
+	border: 0;
+	position: absolute;
+	top: 2px;
+	height: 15px;
+	width: 15px;
+	cursor: pointer;
+	border-radius: 50%;
+	right: 5px;
+	background: 0;
 }
 
-.saveButton {
-  left: 5px;
-  background: white;
+.deleteButton:hover::after {
+	background: #0d0d0d;
+}
+
+.deleteButton::after {
+	position: absolute;
+	transition: background .2s;
+	line-height: 24px;
+	border-radius: 12px;
+	height: 24px;
+	width: 24px;
+	text-align: center;
+	left: -15px;
+	content: '×';
+	font-size: 16px;
+	font-weight: bolder;
+	color: #fff;
 }
